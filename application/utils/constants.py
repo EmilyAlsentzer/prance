@@ -26,4 +26,4 @@ UMLS_APIKEY = "" # Key to make UMLS API calls
 UMLS_URI = "https://uts-ws.nlm.nih.gov"              # URI to make UMLS API calls
 
 # Options for pre-filled suggestions are "NONE", "CSV", and "MAP"
-SUGGESTION_METHOD = "MAP"
+SUGGESTION_METHOD = "NONE"

@@ -85,7 +85,7 @@ Open one terminal tab to run the backend server:
 ```sh
 $ python3 manage.py runserver
 ```
-If all goes well, you should see `* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)` followed by a few more lines in the terminal.
+If all goes well, you should see `* Running on http://127.0.0.1:3000/ (Press CTRL+C to quit)` followed by a few more lines in the terminal.
 
 ### Run the frontend
 

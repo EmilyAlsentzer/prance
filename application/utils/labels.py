@@ -40,19 +40,26 @@ def get_labels_for_codes(codes):
 
 
 def label_data(label_id):
-    label_entry = umls[label_id]
+    label_entry = umls[label_id] #label_id is index into umls list?
     cui = label_entry[0]
     name = label_entry[1]
-    categories = [[type, category_lookup(type)] for type in label_entry[3]]
+    categories = [[type, type] for type in label_entry[3]]
     return [cui, name, categories]
 
+# def label_data(label_id):
+#     label_entry = umls[label_id] #label_id is index into umls list?
+#     cui = label_entry[0]
+#     name = label_entry[1]
+#     categories = [[type, category_lookup(type)] for type in label_entry[3]]
+#     return [cui, name, categories]
 
-def category_lookup(type):
-    tui = types[type][0]
-    if tui in tuis:
-        return tuis[tui]
-    else:
-        return 'Other'
+
+# def category_lookup(type):
+#     tui = types[type][0]
+#     if tui in tuis:
+#         return tuis[tui]
+#     else:
+#         return 'Other'
 
 
 def get_colormap_data():
@@ -67,16 +74,20 @@ def get_umls_labels(keyword):
     return get_labels_for_codes(api_codes)
 
 
+# def get_algorithm_labels(keyword_entered):
+#     keyword = keyword_entered.lower()
+#     ordered_lookups = get_lookups_ordered(keyword)
+#     ordered_indexed = get_inverted_index_ordered(keyword, index)
+
+#     # Get rid of repeats from the lookup table
+#     ordered_indexed = [i for i in ordered_indexed if i not in ordered_lookups]
+
+#     combined = ordered_lookups + ordered_indexed
+#     return combined
+
 def get_algorithm_labels(keyword_entered):
     keyword = keyword_entered.lower()
-    ordered_lookups = get_lookups_ordered(keyword)
-    ordered_indexed = get_inverted_index_ordered(keyword, index)
-
-    # Get rid of repeats from the lookup table
-    ordered_indexed = [i for i in ordered_indexed if i not in ordered_lookups]
-
-    combined = ordered_lookups + ordered_indexed
-    return combined
+    return [label_data(label_id) for label_id in range(len(umls))]
 
 
 # All modes -> best recommendation system
@@ -119,7 +130,7 @@ def get_inverted_index_ordered(term, inverted_index, num=15):
 
 
 def get_lookups_ordered(keyword):
-    if keyword not in lookup:
+    if keyword not in lookup: #lookup maps from string to index into umls array
         return []
     label_ids = lookup[keyword]
     scores = []
