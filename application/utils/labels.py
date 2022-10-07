@@ -15,8 +15,8 @@ from .umls_retrieve import retrieve_labels
 
 
 umls, lookup = pickle.load(open(LABELS_FILE, 'rb'), encoding='bytes')
-index = pickle.load(open(INDEX_FILE, 'rb'), encoding='bytes')
-types, tuis = pickle.load(open(TYPES_FILE, 'rb'), encoding='bytes')
+#index = pickle.load(open(INDEX_FILE, 'rb'), encoding='bytes')
+#types, tuis = pickle.load(open(TYPES_FILE, 'rb'), encoding='bytes')
 colors = pickle.load(open(COLORS_FILE, 'rb'), encoding='bytes')
 
 cui2index = {term[0]: i for i, term in enumerate(umls)}

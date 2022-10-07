@@ -7,7 +7,7 @@ from .labels import cui2index, label_data
 from .constants import *
 
 
-suggestions = pickle.load(open(SUGGESTIONS_FILE, 'rb'))
+#suggestions = pickle.load(open(SUGGESTIONS_FILE, 'rb'))
 
 def load_csv_annotations(text, annotation_df):
     annotations = []
