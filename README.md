@@ -37,7 +37,7 @@ $ brew install python3
 
 You can install packages with the python package installer pip:
 ```
-$ pip3 install flask flask_script flask_migrate flask_bcrypt nltk editdistance requests lxml
+$ pip3 install -r emily_requirements.txt
 ```
 
 ### Frontend requirements
